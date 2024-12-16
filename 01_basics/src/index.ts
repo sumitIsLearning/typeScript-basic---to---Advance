@@ -74,7 +74,7 @@ type usersType = userInterface[];
 
 const users: usersType = [
     {
-        name: "sumit",
+        name: "Sumit",
         age: 21
     },
     {

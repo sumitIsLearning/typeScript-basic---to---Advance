@@ -46,7 +46,7 @@ function logUsers(users) {
 ;
 const users = [
     {
-        name: "sumit",
+        name: "Sumit",
         age: 21
     },
     {
