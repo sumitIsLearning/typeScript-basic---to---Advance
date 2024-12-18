@@ -214,3 +214,49 @@ let d : AandB = {
 
 
 // and with interfaces you can implement them in classes
+
+
+// array assignment
+
+// type numArray = number[]; // if you are using num array multiple places
+
+function findMaximum(arr:number[]):number {
+    return Math.max(...arr);
+}
+
+const ans = findMaximum([2 , 3, 1000 , 10])
+
+console.log(ans);
+
+
+// assignment
+type Users = {
+	firstName: string;
+	lastName: string;
+	age: number;
+} []
+
+function isLegal(users:Users) {
+    return users.filter(user => (user.age > 18))
+}
+
+let users:Users = [
+    {
+        firstName: "sumit",
+        lastName:"chakraborty",
+        age:21
+    },
+    {
+        firstName: "joy",
+        lastName:"chakraborty",
+        age:16
+    },
+    {
+        firstName: "Tushar",
+        lastName:"chakraborty",
+        age:22
+    },
+]
+
+// console.log(isLegal(users));
+
