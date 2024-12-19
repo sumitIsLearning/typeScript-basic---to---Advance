@@ -1,602 +1,502 @@
 [
   {
     "id": 1,
-    "title": "Todo Title 1",
-    "description": "This is the description for todo item 1.",
-    "completed": false
+    "title": "Finish marketing report",
+    "description": "Complete the monthly marketing performance report and analysis."
   },
   {
     "id": 2,
-    "title": "Todo Title 2",
-    "description": "This is the description for todo item 2.",
-    "completed": false
+    "title": "Update user documentation",
+    "description": "Revise and update the user manual for the latest software release."
   },
   {
     "id": 3,
-    "title": "Todo Title 3",
-    "description": "This is the description for todo item 3.",
-    "completed": false
+    "title": "Fix broken links on website",
+    "description": "Go through the website and fix any broken hyperlinks."
   },
   {
     "id": 4,
-    "title": "Todo Title 4",
-    "description": "This is the description for todo item 4.",
-    "completed": false
+    "title": "Test new API endpoints",
+    "description": "Run tests for the newly implemented API endpoints and verify functionality."
   },
   {
     "id": 5,
-    "title": "Todo Title 5",
-    "description": "This is the description for todo item 5.",
-    "completed": false
+    "title": "Prepare meeting agenda",
+    "description": "Create the agenda for the upcoming team meeting."
   },
   {
     "id": 6,
-    "title": "Todo Title 6",
-    "description": "This is the description for todo item 6.",
-    "completed": false
+    "title": "Draft email campaign",
+    "description": "Write and schedule the next email campaign for customers."
   },
   {
     "id": 7,
-    "title": "Todo Title 7",
-    "description": "This is the description for todo item 7.",
-    "completed": false
+    "title": "Organize product inventory",
+    "description": "Check and organize the product inventory for the next sales season."
   },
   {
     "id": 8,
-    "title": "Todo Title 8",
-    "description": "This is the description for todo item 8.",
-    "completed": false
+    "title": "Review customer feedback",
+    "description": "Analyze the feedback received from customers on the recent product update."
   },
   {
     "id": 9,
-    "title": "Todo Title 9",
-    "description": "This is the description for todo item 9.",
-    "completed": false
+    "title": "Upgrade software dependencies",
+    "description": "Update the software dependencies to the latest versions."
   },
   {
     "id": 10,
-    "title": "Todo Title 10",
-    "description": "This is the description for todo item 10.",
-    "completed": false
+    "title": "Implement dark mode feature",
+    "description": "Develop and integrate the dark mode feature into the app."
   },
   {
     "id": 11,
-    "title": "Todo Title 11",
-    "description": "This is the description for todo item 11.",
-    "completed": false
+    "title": "Refactor payment processing code",
+    "description": "Simplify and optimize the payment gateway integration code."
   },
   {
     "id": 12,
-    "title": "Todo Title 12",
-    "description": "This is the description for todo item 12.",
-    "completed": false
+    "title": "Optimize website loading speed",
+    "description": "Reduce the page load time by compressing images and minimizing CSS files."
   },
   {
     "id": 13,
-    "title": "Todo Title 13",
-    "description": "This is the description for todo item 13.",
-    "completed": false
+    "title": "Design new homepage layout",
+    "description": "Create a new layout design for the homepage, focusing on improved user experience."
   },
   {
     "id": 14,
-    "title": "Todo Title 14",
-    "description": "This is the description for todo item 14.",
-    "completed": false
+    "title": "Fix mobile responsiveness issues",
+    "description": "Resolve layout issues on mobile devices to improve responsiveness."
   },
   {
     "id": 15,
-    "title": "Todo Title 15",
-    "description": "This is the description for todo item 15.",
-    "completed": false
+    "title": "Write test cases for authentication system",
+    "description": "Write unit and integration tests for the user authentication flow."
   },
   {
     "id": 16,
-    "title": "Todo Title 16",
-    "description": "This is the description for todo item 16.",
-    "completed": false
+    "title": "Setup Google Analytics",
+    "description": "Configure Google Analytics for tracking website traffic and user behavior."
   },
   {
     "id": 17,
-    "title": "Todo Title 17",
-    "description": "This is the description for todo item 17.",
-    "completed": false
+    "title": "Create new user roles",
+    "description": "Implement additional user roles with varying levels of access to the system."
   },
   {
     "id": 18,
-    "title": "Todo Title 18",
-    "description": "This is the description for todo item 18.",
-    "completed": false
+    "title": "Set up continuous integration",
+    "description": "Configure a CI pipeline to automate testing and deployments."
   },
   {
     "id": 19,
-    "title": "Todo Title 19",
-    "description": "This is the description for todo item 19.",
-    "completed": false
+    "title": "Write blog post on new features",
+    "description": "Write and publish a blog post explaining the new features added to the app."
   },
   {
     "id": 20,
-    "title": "Todo Title 20",
-    "description": "This is the description for todo item 20.",
-    "completed": false
+    "title": "Design new product packaging",
+    "description": "Design packaging for the new product line, keeping sustainability in mind."
   },
   {
     "id": 21,
-    "title": "Todo Title 21",
-    "description": "This is the description for todo item 21.",
-    "completed": false
+    "title": "Implement search functionality",
+    "description": "Develop the search feature to help users find products more easily."
   },
   {
     "id": 22,
-    "title": "Todo Title 22",
-    "description": "This is the description for todo item 22.",
-    "completed": false
+    "title": "Create social media content",
+    "description": "Design visuals and write content for social media platforms."
   },
   {
     "id": 23,
-    "title": "Todo Title 23",
-    "description": "This is the description for todo item 23.",
-    "completed": false
+    "title": "Update team calendar",
+    "description": "Update the team calendar with upcoming deadlines and meetings."
   },
   {
     "id": 24,
-    "title": "Todo Title 24",
-    "description": "This is the description for todo item 24.",
-    "completed": false
+    "title": "Test product pricing functionality",
+    "description": "Verify that the product pricing functionality is correctly implemented."
   },
   {
     "id": 25,
-    "title": "Todo Title 25",
-    "description": "This is the description for todo item 25.",
-    "completed": false
+    "title": "Configure email notifications",
+    "description": "Set up email alerts for user actions like account registration and purchases."
   },
   {
     "id": 26,
-    "title": "Todo Title 26",
-    "description": "This is the description for todo item 26.",
-    "completed": false
+    "title": "Setup user authentication system",
+    "description": "Integrate OAuth for secure user authentication across the platform."
   },
   {
     "id": 27,
-    "title": "Todo Title 27",
-    "description": "This is the description for todo item 27.",
-    "completed": false
+    "title": "Integrate third-party API",
+    "description": "Integrate a third-party API to fetch external data into the app."
   },
   {
     "id": 28,
-    "title": "Todo Title 28",
-    "description": "This is the description for todo item 28.",
-    "completed": false
+    "title": "Design user interface for settings",
+    "description": "Design and implement the settings interface for users to update preferences."
   },
   {
     "id": 29,
-    "title": "Todo Title 29",
-    "description": "This is the description for todo item 29.",
-    "completed": false
+    "title": "Audit security vulnerabilities",
+    "description": "Conduct a security audit of the app to identify and resolve potential vulnerabilities."
   },
   {
     "id": 30,
-    "title": "Todo Title 30",
-    "description": "This is the description for todo item 30.",
-    "completed": false
+    "title": "Refactor codebase",
+    "description": "Refactor the code to improve maintainability and remove any redundant code."
   },
   {
     "id": 31,
-    "title": "Todo Title 31",
-    "description": "This is the description for todo item 31.",
-    "completed": false
+    "title": "Create customer survey",
+    "description": "Design and send out a survey to collect feedback from customers."
   },
   {
     "id": 32,
-    "title": "Todo Title 32",
-    "description": "This is the description for todo item 32.",
-    "completed": false
+    "title": "Deploy feature updates",
+    "description": "Push the latest feature updates to the production environment."
   },
   {
     "id": 33,
-    "title": "Todo Title 33",
-    "description": "This is the description for todo item 33.",
-    "completed": false
+    "title": "Monitor server performance",
+    "description": "Track server health and ensure optimal performance during peak hours."
   },
   {
     "id": 34,
-    "title": "Todo Title 34",
-    "description": "This is the description for todo item 34.",
-    "completed": false
+    "title": "Optimize database queries",
+    "description": "Optimize the database queries to improve application performance."
   },
   {
     "id": 35,
-    "title": "Todo Title 35",
-    "description": "This is the description for todo item 35.",
-    "completed": false
+    "title": "Add image upload feature",
+    "description": "Implement the ability for users to upload images to their profiles."
   },
   {
     "id": 36,
-    "title": "Todo Title 36",
-    "description": "This is the description for todo item 36.",
-    "completed": false
+    "title": "Conduct A/B testing",
+    "description": "Perform A/B tests on the landing page to see which design converts better."
   },
   {
     "id": 37,
-    "title": "Todo Title 37",
-    "description": "This is the description for todo item 37.",
-    "completed": false
+    "title": "Design app icons",
+    "description": "Create new icons for the app to improve its visual identity."
   },
   {
     "id": 38,
-    "title": "Todo Title 38",
-    "description": "This is the description for todo item 38.",
-    "completed": false
+    "title": "Review API rate limits",
+    "description": "Ensure the API rate limits are properly configured to prevent misuse."
   },
   {
     "id": 39,
-    "title": "Todo Title 39",
-    "description": "This is the description for todo item 39.",
-    "completed": false
+    "title": "Set up server backups",
+    "description": "Configure automatic backups for the server to ensure data safety."
   },
   {
     "id": 40,
-    "title": "Todo Title 40",
-    "description": "This is the description for todo item 40.",
-    "completed": false
+    "title": "Create pricing page",
+    "description": "Design and implement a pricing page that clearly outlines the product tiers."
   },
   {
     "id": 41,
-    "title": "Todo Title 41",
-    "description": "This is the description for todo item 41.",
-    "completed": false
+    "title": "Write API documentation",
+    "description": "Create comprehensive documentation for the newly released API endpoints."
   },
   {
     "id": 42,
-    "title": "Todo Title 42",
-    "description": "This is the description for todo item 42.",
-    "completed": false
+    "title": "Prepare quarterly financial report",
+    "description": "Compile and present the quarterly financial report for the company."
   },
   {
     "id": 43,
-    "title": "Todo Title 43",
-    "description": "This is the description for todo item 43.",
-    "completed": false
+    "title": "Schedule client meetings",
+    "description": "Arrange meetings with clients to discuss their feedback and next steps."
   },
   {
     "id": 44,
-    "title": "Todo Title 44",
-    "description": "This is the description for todo item 44.",
-    "completed": false
+    "title": "Test email templates",
+    "description": "Check and test email templates for different platforms and devices."
   },
   {
     "id": 45,
-    "title": "Todo Title 45",
-    "description": "This is the description for todo item 45.",
-    "completed": false
+    "title": "Implement two-factor authentication",
+    "description": "Enable two-factor authentication for better account security."
   },
   {
     "id": 46,
-    "title": "Todo Title 46",
-    "description": "This is the description for todo item 46.",
-    "completed": false
+    "title": "Design user onboarding flow",
+    "description": "Create an intuitive onboarding experience for new users."
   },
   {
     "id": 47,
-    "title": "Todo Title 47",
-    "description": "This is the description for todo item 47.",
-    "completed": false
+    "title": "Update privacy policy",
+    "description": "Revise the privacy policy to ensure compliance with new regulations."
   },
   {
     "id": 48,
-    "title": "Todo Title 48",
-    "description": "This is the description for todo item 48.",
-    "completed": false
+    "title": "Configure server monitoring",
+    "description": "Set up monitoring for the server to track uptime and resource usage."
   },
   {
     "id": 49,
-    "title": "Todo Title 49",
-    "description": "This is the description for todo item 49.",
-    "completed": false
+    "title": "Conduct performance testing",
+    "description": "Test the performance of the app under high load conditions."
   },
   {
     "id": 50,
-    "title": "Todo Title 50",
-    "description": "This is the description for todo item 50.",
-    "completed": false
+    "title": "Fix CSS layout bugs",
+    "description": "Fix layout issues caused by CSS bugs, especially on mobile devices."
   },
   {
     "id": 51,
-    "title": "Todo Title 51",
-    "description": "This is the description for todo item 51.",
-    "completed": false
+    "title": "Write user manual",
+    "description": "Create a step-by-step user guide for the new app features."
   },
   {
     "id": 52,
-    "title": "Todo Title 52",
-    "description": "This is the description for todo item 52.",
-    "completed": false
+    "title": "Upgrade payment gateway",
+    "description": "Update the payment gateway to support additional payment methods."
   },
   {
     "id": 53,
-    "title": "Todo Title 53",
-    "description": "This is the description for todo item 53.",
-    "completed": false
+    "title": "Optimize code for mobile",
+    "description": "Ensure that the app is fully optimized for mobile devices."
   },
   {
     "id": 54,
-    "title": "Todo Title 54",
-    "description": "This is the description for todo item 54.",
-    "completed": false
+    "title": "Implement geolocation feature",
+    "description": "Add geolocation support to allow location-based services in the app."
   },
   {
     "id": 55,
-    "title": "Todo Title 55",
-    "description": "This is the description for todo item 55.",
-    "completed": false
+    "title": "Fix server-side bugs",
+    "description": "Identify and fix bugs related to server-side functionality."
   },
   {
     "id": 56,
-    "title": "Todo Title 56",
-    "description": "This is the description for todo item 56.",
-    "completed": false
+    "title": "Add user activity tracking",
+    "description": "Track user activity within the app for better insights and analysis."
   },
   {
     "id": 57,
-    "title": "Todo Title 57",
-    "description": "This is the description for todo item 57.",
-    "completed": false
+    "title": "Conduct user testing",
+    "description": "Run a round of user testing to identify areas for improvement."
   },
   {
     "id": 58,
-    "title": "Todo Title 58",
-    "description": "This is the description for todo item 58.",
-    "completed": false
+    "title": "Update FAQ page",
+    "description": "Update the FAQ page with new information regarding the latest app features."
   },
   {
     "id": 59,
-    "title": "Todo Title 59",
-    "description": "This is the description for todo item 59.",
-    "completed": false
+    "title": "Fix database schema",
+    "description": "Fix issues in the database schema that are causing errors."
   },
   {
     "id": 60,
-    "title": "Todo Title 60",
-    "description": "This is the description for todo item 60.",
-    "completed": false
+    "title": "Create product demo video",
+    "description": "Make a video demonstrating how the new features work."
   },
   {
     "id": 61,
-    "title": "Todo Title 61",
-    "description": "This is the description for todo item 61.",
-    "completed": false
+    "title": "Test social media integrations",
+    "description": "Ensure that all social media sharing integrations are working properly."
   },
   {
     "id": 62,
-    "title": "Todo Title 62",
-    "description": "This is the description for todo item 62.",
-    "completed": false
+    "title": "Implement chat support",
+    "description": "Set up live chat support on the website for customer inquiries."
   },
   {
     "id": 63,
-    "title": "Todo Title 63",
-    "description": "This is the description for todo item 63.",
-    "completed": false
+    "title": "Add analytics tracking code",
+    "description": "Install and configure tracking code for user analytics."
   },
   {
     "id": 64,
-    "title": "Todo Title 64",
-    "description": "This is the description for todo item 64.",
-    "completed": false
+    "title": "Configure file upload system",
+    "description": "Set up the backend for secure file uploads."
   },
   {
     "id": 65,
-    "title": "Todo Title 65",
-    "description": "This is the description for todo item 65.",
-    "completed": false
+    "title": "Design error pages",
+    "description": "Design custom error pages for 404 and 500 error statuses."
   },
   {
     "id": 66,
-    "title": "Todo Title 66",
-    "description": "This is the description for todo item 66.",
-    "completed": false
+    "title": "Integrate SMS notifications",
+    "description": "Add SMS functionality to notify users of important account events."
   },
   {
     "id": 67,
-    "title": "Todo Title 67",
-    "description": "This is the description for todo item 67.",
-    "completed": false
+    "title": "Write release notes",
+    "description": "Document the latest release notes for the upcoming software version."
   },
   {
     "id": 68,
-    "title": "Todo Title 68",
-    "description": "This is the description for todo item 68.",
-    "completed": false
+    "title": "Fix API authentication",
+    "description": "Fix issues with API authentication that are preventing successful requests."
   },
   {
     "id": 69,
-    "title": "Todo Title 69",
-    "description": "This is the description for todo item 69.",
-    "completed": false
+    "title": "Integrate third-party chat widget",
+    "description": "Embed a third-party live chat widget on the website for customer service."
   },
   {
     "id": 70,
-    "title": "Todo Title 70",
-    "description": "This is the description for todo item 70.",
-    "completed": false
+    "title": "Build product recommendation system",
+    "description": "Implement a recommendation system based on user preferences and browsing history."
   },
   {
     "id": 71,
-    "title": "Todo Title 71",
-    "description": "This is the description for todo item 71.",
-    "completed": false
+    "title": "Configure webhooks",
+    "description": "Set up webhooks to trigger external actions when certain events occur."
   },
   {
     "id": 72,
-    "title": "Todo Title 72",
-    "description": "This is the description for todo item 72.",
-    "completed": false
+    "title": "Add video streaming feature",
+    "description": "Implement a feature that allows users to stream videos within the app."
   },
   {
     "id": 73,
-    "title": "Todo Title 73",
-    "description": "This is the description for todo item 73.",
-    "completed": false
+    "title": "Set up payment fraud detection",
+    "description": "Integrate payment fraud detection to prevent fraudulent transactions."
   },
   {
     "id": 74,
-    "title": "Todo Title 74",
-    "description": "This is the description for todo item 74.",
-    "completed": false
+    "title": "Implement user roles and permissions",
+    "description": "Add roles and permissions management for different types of users."
   },
   {
     "id": 75,
-    "title": "Todo Title 75",
-    "description": "This is the description for todo item 75.",
-    "completed": false
+    "title": "Design app icons for iOS",
+    "description": "Create icons for the iOS app and ensure they meet platform guidelines."
   },
   {
     "id": 76,
-    "title": "Todo Title 76",
-    "description": "This is the description for todo item 76.",
-    "completed": false
+    "title": "Improve search algorithm",
+    "description": "Enhance the search algorithm to deliver more accurate results."
   },
   {
     "id": 77,
-    "title": "Todo Title 77",
-    "description": "This is the description for todo item 77.",
-    "completed": false
+    "title": "Update terms and conditions",
+    "description": "Revise the terms and conditions to reflect the latest changes in policy."
   },
   {
     "id": 78,
-    "title": "Todo Title 78",
-    "description": "This is the description for todo item 78.",
-    "completed": false
+    "title": "Integrate AI-driven chatbots",
+    "description": "Set up an AI chatbot to assist users with common questions."
   },
   {
     "id": 79,
-    "title": "Todo Title 79",
-    "description": "This is the description for todo item 79.",
-    "completed": false
+    "title": "Develop new user dashboard",
+    "description": "Design a new dashboard layout for a better user experience."
   },
   {
     "id": 80,
-    "title": "Todo Title 80",
-    "description": "This is the description for todo item 80.",
-    "completed": false
+    "title": "Create multilingual support",
+    "description": "Add support for multiple languages in the app."
   },
   {
     "id": 81,
-    "title": "Todo Title 81",
-    "description": "This is the description for todo item 81.",
-    "completed": false
+    "title": "Set up marketing automation",
+    "description": "Automate marketing workflows to improve lead nurturing and conversion."
   },
   {
     "id": 82,
-    "title": "Todo Title 82",
-    "description": "This is the description for todo item 82.",
-    "completed": false
+    "title": "Implement SSL for secure connections",
+    "description": "Ensure the website uses SSL to provide secure connections for users."
   },
   {
     "id": 83,
-    "title": "Todo Title 83",
-    "description": "This is the description for todo item 83.",
-    "completed": false
+    "title": "Conduct user feedback sessions",
+    "description": "Organize sessions with users to gather direct feedback about app usability."
   },
   {
     "id": 84,
-    "title": "Todo Title 84",
-    "description": "This is the description for todo item 84.",
-    "completed": false
+    "title": "Fix login flow issues",
+    "description": "Resolve problems with the user login process."
   },
   {
     "id": 85,
-    "title": "Todo Title 85",
-    "description": "This is the description for todo item 85.",
-    "completed": false
+    "title": "Integrate affiliate program",
+    "description": "Set up an affiliate program to allow users to earn commissions by promoting the app."
   },
   {
     "id": 86,
-    "title": "Todo Title 86",
-    "description": "This is the description for todo item 86.",
-    "completed": false
+    "title": "Create exit intent popups",
+    "description": "Design popups that appear when users attempt to leave the website."
   },
   {
     "id": 87,
-    "title": "Todo Title 87",
-    "description": "This is the description for todo item 87.",
-    "completed": false
+    "title": "Set up automated emails for abandoned carts",
+    "description": "Set up email notifications for users who leave items in their cart without checking out."
   },
   {
     "id": 88,
-    "title": "Todo Title 88",
-    "description": "This is the description for todo item 88.",
-    "completed": false
+    "title": "Create user feedback loop",
+    "description": "Design a process for collecting and acting on user feedback continuously."
   },
   {
     "id": 89,
-    "title": "Todo Title 89",
-    "description": "This is the description for todo item 89.",
-    "completed": false
+    "title": "Test app on different browsers",
+    "description": "Verify that the app functions properly on multiple browsers, including Safari, Chrome, and Firefox."
   },
   {
     "id": 90,
-    "title": "Todo Title 90",
-    "description": "This is the description for todo item 90.",
-    "completed": false
+    "title": "Implement data encryption",
+    "description": "Encrypt sensitive user data to ensure privacy and security."
   },
   {
     "id": 91,
-    "title": "Todo Title 91",
-    "description": "This is the description for todo item 91.",
-    "completed": false
+    "title": "Set up product categories",
+    "description": "Organize products into relevant categories for easier navigation."
   },
   {
     "id": 92,
-    "title": "Todo Title 92",
-    "description": "This is the description for todo item 92.",
-    "completed": false
+    "title": "Refactor API logic",
+    "description": "Simplify and optimize the logic for handling API requests."
   },
   {
     "id": 93,
-    "title": "Todo Title 93",
-    "description": "This is the description for todo item 93.",
-    "completed": false
+    "title": "Add product reviews",
+    "description": "Integrate a system to allow users to leave product reviews."
   },
   {
     "id": 94,
-    "title": "Todo Title 94",
-    "description": "This is the description for todo item 94.",
-    "completed": false
+    "title": "Create loyalty program",
+    "description": "Develop a rewards-based loyalty program for regular customers."
   },
   {
     "id": 95,
-    "title": "Todo Title 95",
-    "description": "This is the description for todo item 95.",
-    "completed": false
+    "title": "Fix order tracking system",
+    "description": "Resolve issues with the order tracking functionality."
   },
   {
     "id": 96,
-    "title": "Todo Title 96",
-    "description": "This is the description for todo item 96.",
-    "completed": false
+    "title": "Add custom user avatars",
+    "description": "Allow users to upload custom avatars for their profiles."
   },
   {
     "id": 97,
-    "title": "Todo Title 97",
-    "description": "This is the description for todo item 97.",
-    "completed": false
+    "title": "Update website security protocols",
+    "description": "Ensure the website follows best practices for security and encryption."
   },
   {
     "id": 98,
-    "title": "Todo Title 98",
-    "description": "This is the description for todo item 98.",
-    "completed": false
+    "title": "Optimize app for low-bandwidth users",
+    "description": "Make the app more accessible for users on slower network connections."
   },
   {
     "id": 99,
-    "title": "Todo Title 99",
-    "description": "This is the description for todo item 99.",
-    "completed": false
+    "title": "Implement two-step verification for admin access",
+    "description": "Add two-step verification to enhance security for admin accounts."
   },
   {
     "id": 100,
-    "title": "Todo Title 100",
-    "description": "This is the description for todo item 100.",
-    "completed": false
+    "title": "Test mobile app push notifications",
+    "description": "Ensure push notifications are working properly on Android and iOS devices."
   }
 ]

@@ -1,11 +1,13 @@
 require('dotenv').config()
 import express from 'express';
 import fs from 'fs';
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 4000;
-const todoFilePath = process.env.todoFile || "../utils/todo.json" // in future this will we db link
-let id = 101;
+const todoFilePath:string = process.env.todoFile || ""; // in future this will we db link
+const dummyTodoFilePath:string = process.env.dummyTodoFile || "";
+let id:number = 101;
 
 export enum ResponseStatusCode {
     // 1xx: Informational
@@ -59,9 +61,13 @@ function WriteData(file: string, data: {}): void {
 }
 
 
+app.use(express.json());
+app.use(cors());
+
+
 app.get("/todo", (req:any, res:any) => {
     try {
-        const todos:TodoType[] = readData(todoFilePath);
+        const todos:TodoType[] = readData(dummyTodoFilePath);
         if (!todos) { 
             return res
                 .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
@@ -79,7 +85,7 @@ app.get("/todo", (req:any, res:any) => {
 app.get("/todo/:id", (req:any, res:any) => {
     try {
         const id = req.params.id;
-        const todos:TodoType[] = readData(todoFilePath);
+        const todos:TodoType[] = readData(dummyTodoFilePath);
         if (!todos) { 
             return res
                 .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
@@ -104,17 +110,75 @@ app.get("/todo/:id", (req:any, res:any) => {
 })
 
 
-app.post("/todo", (req, res) => {
+app.post("/todo", (req:any, res:any) => {
+    const todo = req.body;
+
+    if(!todo) return res.status(ResponseStatusCode.BAD_REQUEST).json({Error:"request body missing"})
+
+    try{
+        const todos:TodoType[] = readData(dummyTodoFilePath);
+
+        const newTodo:TodoType = {
+            id,
+            title:todo.title,
+            description:todo.description,
+            completed: false
+        }
+    
+        WriteData(dummyTodoFilePath,[...todos , newTodo] );
+        id++;
+        res.status(ResponseStatusCode.OK).json({success:"successfully added the todo"})
+    } catch(error:any) {
+        return res
+        .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
+        .json({ message: "Unexpected error occurred", error: error.message });
+    }
 
 })
 
+app.put("/todo/:id", (req:any, res:any) => {
+    const todoId = req.params.id;
+    const todo = req.body;
 
-app.put("/todo", (req, res) => {
+    if(!todoId || !todo) return res.status(ResponseStatusCode.BAD_REQUEST).json({Error:"request body and todo id is required"})
 
+    try{
+        const todos:TodoType[] = readData(dummyTodoFilePath);
+
+        const todoIndex = todos.findIndex(todo => todo.id === todoId);
+        
+        todos[todoIndex] = {...todos[todoIndex] , title: todo.title , description:todo.description}
+
+        WriteData(dummyTodoFilePath,todos );
+        id++;
+        res.status(ResponseStatusCode.OK).json({success:"successfully added the todo"})
+    } catch(error:any) {
+        return res
+        .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
+        .json({ message: "Unexpected error occurred", error: error.message });
+    }
 })
 
-app.delete("/todo", (req, res) => {
+app.delete("/todo/:id", (req:any, res:any) => {
+    const todoId = req.params.id;
 
+    if(!todoId ) return res.status(ResponseStatusCode.BAD_REQUEST).json({Error:" todo id is required"})
+
+    try{
+        const todos:TodoType[] = readData(dummyTodoFilePath);
+
+        const todoIndex = todos.findIndex(todo => todo.id === todoId);
+        
+        todos.splice(todoIndex , 1);
+
+        WriteData(dummyTodoFilePath,todos );
+        id++;
+        res.status(ResponseStatusCode.OK).json({success:"successfully added the todo"})
+    } catch(error:any) {
+        return res
+        .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
+        .json({ message: "Unexpected error occurred", error: error.message });
+    }
 })
 
 app.listen(port , () => {
