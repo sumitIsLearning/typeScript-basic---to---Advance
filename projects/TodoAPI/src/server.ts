@@ -1,15 +1,16 @@
-require('dotenv').config()
-import express from 'express';
+import dotenv from 'dotenv';
+import express, { Request, Response } from 'express';
 import fs from 'fs';
 import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 4000;
-const todoFilePath:string = process.env.todoFile || ""; // in future this will we db link
-const dummyTodoFilePath:string = process.env.dummyTodoFile || "";
-let id:number = 101;
+dotenv.config();
+const todoFilePath: string = process.env.todoFile || ""; // in future this will we db link
+const dummyTodoFilePath: string = process.env.dummyTodoFile || "";
+let id: number = 101;
 
-export enum ResponseStatusCode {
+enum ResponseStatusCode {
     // 1xx: Informational
     CONTINUE = 100,
     SWITCHING_PROTOCOLS = 101,
@@ -51,7 +52,7 @@ interface TodoType {
 }
 
 
-function readData(file: string):TodoType[] {
+function readData(file: string): TodoType[] {
     const data = fs.readFileSync(file, 'utf-8');
     return JSON.parse(data);
 }
@@ -65,122 +66,123 @@ app.use(express.json());
 app.use(cors());
 
 
-app.get("/todo", (req:any, res:any) => {
+app.get("/todo", (req: Request, res: Response) => {
     try {
-        const todos:TodoType[] = readData(dummyTodoFilePath);
-        if (!todos) { 
-            return res
+        const todos: TodoType[] = readData(dummyTodoFilePath);
+        if (!todos) {
+            res
                 .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
                 .json({ message: "Error while retrieving data" });
         }
-        return res.json(todos); // Explicitly returning the response
-    } catch (error:any) {
-        return res
+        res.json(todos); // Explicitly ing the response
+    } catch (error: any) {
+        res
             .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
             .json({ message: "Unexpected error occurred", error: error.message });
     }
+
 });
 
 
-app.get("/todo/:id", (req:any, res:any) => {
+app.get("/todo/:id", (req: Request, res: Response) => {
     try {
         const id = req.params.id;
-        const todos:TodoType[] = readData(dummyTodoFilePath);
-        if (!todos) { 
-            return res
+        const todos: TodoType[] = readData(dummyTodoFilePath);
+        if (!todos) {
+            res
                 .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
                 .json({ message: "Error while retrieving data" });
         }
 
         const foundTodo = todos.find(todo => (todo.id === (Number(id))));
 
-        if (!foundTodo) { 
-            return res
+        if (!foundTodo) {
+            res
                 .status(ResponseStatusCode.NOT_FOUND)
                 .json({ error: "Todo does not exit" });
         }
 
-        return res.json(foundTodo); // Explicitly returning the response
-    } catch (error:any) {
-        return res
+        res.json(foundTodo); // Explicitly ing the response
+    } catch (error: any) {
+        res
             .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
             .json({ message: "Unexpected error occurred", error: error.message });
     }
-    
+
 })
 
 
-app.post("/todo", (req:any, res:any) => {
+app.post("/todo", (req: Request, res: Response) => {
     const todo = req.body;
 
-    if(!todo) return res.status(ResponseStatusCode.BAD_REQUEST).json({Error:"request body missing"})
+    if (!todo) res.status(ResponseStatusCode.BAD_REQUEST).json({ Error: "request body missing" })
 
-    try{
-        const todos:TodoType[] = readData(dummyTodoFilePath);
+    try {
+        const todos: TodoType[] = readData(dummyTodoFilePath);
 
-        const newTodo:TodoType = {
+        const newTodo: TodoType = {
             id,
-            title:todo.title,
-            description:todo.description,
+            title: todo.title,
+            description: todo.description,
             completed: false
         }
-    
-        WriteData(dummyTodoFilePath,[...todos , newTodo] );
+
+        WriteData(dummyTodoFilePath, [...todos, newTodo]);
         id++;
-        res.status(ResponseStatusCode.OK).json({success:"successfully added the todo"})
-    } catch(error:any) {
-        return res
-        .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
-        .json({ message: "Unexpected error occurred", error: error.message });
+        res.status(ResponseStatusCode.OK).json({ success: "successfully added the todo" })
+    } catch (error: any) {
+        res
+            .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
+            .json({ message: "Unexpected error occurred", error: error.message });
     }
 
 })
 
-app.put("/todo/:id", (req:any, res:any) => {
-    const todoId = req.params.id;
+app.put("/todo/:id", (req: Request, res: Response) => {
+    const todoId = parseInt(req.params.id);
     const todo = req.body;
 
-    if(!todoId || !todo) return res.status(ResponseStatusCode.BAD_REQUEST).json({Error:"request body and todo id is required"})
+    if (!todoId || !todo) res.status(ResponseStatusCode.BAD_REQUEST).json({ Error: "request body and todo id is required" })
 
-    try{
-        const todos:TodoType[] = readData(dummyTodoFilePath);
+    try {
+        const todos: TodoType[] = readData(dummyTodoFilePath);
 
         const todoIndex = todos.findIndex(todo => todo.id === todoId);
-        
-        todos[todoIndex] = {...todos[todoIndex] , title: todo.title , description:todo.description}
 
-        WriteData(dummyTodoFilePath,todos );
+        todos[todoIndex] = { ...todos[todoIndex], title: todo.title, description: todo.description }
+
+        WriteData(dummyTodoFilePath, todos);
         id++;
-        res.status(ResponseStatusCode.OK).json({success:"successfully added the todo"})
-    } catch(error:any) {
-        return res
-        .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
-        .json({ message: "Unexpected error occurred", error: error.message });
+        res.status(ResponseStatusCode.OK).json({ success: "successfully added the todo" })
+    } catch (error: any) {
+        res
+            .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
+            .json({ message: "Unexpected error occurred", error: error.message });
     }
 })
 
-app.delete("/todo/:id", (req:any, res:any) => {
-    const todoId = req.params.id;
+app.delete("/todo/:id", (req: Request, res: Response) => {
+    const todoId = parseInt(req.params.id);
 
-    if(!todoId ) return res.status(ResponseStatusCode.BAD_REQUEST).json({Error:" todo id is required"})
+    if (!todoId) res.status(ResponseStatusCode.BAD_REQUEST).json({ Error: " todo id is required" })
 
-    try{
-        const todos:TodoType[] = readData(dummyTodoFilePath);
+    try {
+        const todos: TodoType[] = readData(dummyTodoFilePath);
 
         const todoIndex = todos.findIndex(todo => todo.id === todoId);
-        
-        todos.splice(todoIndex , 1);
 
-        WriteData(dummyTodoFilePath,todos );
+        todos.splice(todoIndex, 1);
+
+        WriteData(dummyTodoFilePath, todos);
         id++;
-        res.status(ResponseStatusCode.OK).json({success:"successfully added the todo"})
-    } catch(error:any) {
-        return res
-        .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
-        .json({ message: "Unexpected error occurred", error: error.message });
+        res.status(ResponseStatusCode.OK).json({ success: "successfully added the todo" })
+    } catch (error: any) {
+        res
+            .status(ResponseStatusCode.INTERNAL_SERVER_ERROR)
+            .json({ message: "Unexpected error occurred", error: error.message });
     }
 })
 
-app.listen(port , () => {
+app.listen(port, () => {
     console.log(`server running on: http://localhost:${port}/`);
 })

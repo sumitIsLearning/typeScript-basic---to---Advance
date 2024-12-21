@@ -1,0 +1,1 @@
+{"root":["./src/db.ts","./src/server.ts","./src/middlewares/hash&verifypass/handlehashing.ts","./src/routes/api/adminrouter.ts","./src/routes/api/courserouter.ts","./src/routes/api/userrouter.ts","./src/statuscodes/responsestatuscode.ts"],"version":"5.7.2"}
