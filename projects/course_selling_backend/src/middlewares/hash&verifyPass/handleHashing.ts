@@ -17,9 +17,12 @@ async function hashPassword(req: Request, res: Response, next: NextFunction) {
     try {
         const { password } = req.body;
 
-        if (!password) res.status(ResponseStatusCode.BAD_REQUEST).json({
-            error: "Password is required"
-        })
+        if (!password) {
+            res.status(ResponseStatusCode.BAD_REQUEST).json({
+                error: "Password is required"
+            })
+            return;
+        }
 
         const saltRound = 10;
         const salt = await bcrypt.genSalt(saltRound);
@@ -33,6 +36,7 @@ async function hashPassword(req: Request, res: Response, next: NextFunction) {
         res.status(ResponseStatusCode.INTERNAL_SERVER_ERROR).json({
             error: "Error Occured: please wait ..."
         })
+        return;
     }
 
 }
@@ -42,9 +46,12 @@ async function verifyPassword(req: Request, res: Response, next: NextFunction) {
     try {
         const { email, password } = req.body;
 
-        if (!email || !password) res.status(ResponseStatusCode.BAD_REQUEST).json({
-            error: "Both password and email is required"
-        })
+        if (!email || !password) {
+            res.status(ResponseStatusCode.BAD_REQUEST).json({
+                error: "Both password and email is required"
+            })
+            return;
+        }
 
         const user = await userModel.findOne({ email });
 
@@ -52,17 +59,19 @@ async function verifyPassword(req: Request, res: Response, next: NextFunction) {
             res.status(ResponseStatusCode.NOT_FOUND).json({
                 error: "User does not Exists"
             });
-        } else {
-            const match = await bcrypt.compare(password, user.password)
-
-            if (!match) res.status(ResponseStatusCode.BAD_REQUEST).json({
-                error: "Invalid Password"
-            })
-
-            req.verifiedUser = user;
-
-            next();
+            return;
         }
+
+        const match = await bcrypt.compare(password, user.password)
+
+        if (!match) res.status(ResponseStatusCode.BAD_REQUEST).json({
+            error: "Invalid Password"
+        })
+
+        req.verifiedUser = user;
+
+        next();
+
     } catch (error: any) {
         console.error(`Error during verifying password:${error.message}`);
         res.status(ResponseStatusCode.INTERNAL_SERVER_ERROR).json({

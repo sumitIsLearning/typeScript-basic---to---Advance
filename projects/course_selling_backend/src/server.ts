@@ -2,7 +2,7 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import jwt from 'jsonwebtoken';
+import cookieParser from 'cookie-parser';
 
 
 //routes
@@ -11,16 +11,18 @@ import adminRouter from './routes/api/adminRouter';
 import courseRouter from './routes/api/courseRouter';
 import { connectDB } from './db';
 
+// configs
 dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
+// external middlewares
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 
-
-
+// routes handlers
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/admin', adminRouter);
 app.use('/api/v1/course', courseRouter);
