@@ -5,6 +5,7 @@ import { courseModel, purchaseModel, userModel } from '../../db';
 import { hashPassword, verifyPassword } from '../../middlewares/hash&verifyPass/handleHashing';
 import { generateToken } from '../../utils/token';
 import userVerification from '../../middlewares/hash&verifyPass/authentication/userVerification';
+import mongoose, { Types } from 'mongoose';
 
 dotenv.config();
 const JwtSecret: string = process.env.JWT_USER_SECRET || "";
@@ -27,7 +28,7 @@ userRouter.post('/signUp', hashPassword, async (req: Request, res: Response) => 
 
         if (existingUser) {
             res.status(ResponseStatusCode.BAD_REQUEST).json({
-                Error: "User already Exists"
+                Error: "User already exists"
             })
             return;
         }
@@ -92,13 +93,6 @@ userRouter.get('/courses', async (req: Request, res: Response) => {
     try {
         const userId = req.userId;
 
-        if(!userId) {
-            res.status(ResponseStatusCode.INTERNAL_SERVER_ERROR).json({
-                error:"Error userId is undefined"       
-            });
-            return;
-        }
-
         const purchases = await purchaseModel.find({userId});
 
         if(purchases.length === 0) {
@@ -138,9 +132,18 @@ userRouter.get('/purchase/course/:id', async (req: Request, res: Response) => {
             return;
         }
 
-        if(!courseId){
+        if(!mongoose.Types.ObjectId.isValid(courseId)){
             res.status(ResponseStatusCode.UNAUTHORIZED).json({
-                error:"course id is required"
+                error:"Invalid Course id"
+            })
+            return;
+        }
+
+        const foundCourse = await courseModel.findOne({_id:courseId})
+
+        if(!foundCourse) {
+            res.status(ResponseStatusCode.UNAUTHORIZED).json({
+                error:"Course not Found"
             })
             return;
         }

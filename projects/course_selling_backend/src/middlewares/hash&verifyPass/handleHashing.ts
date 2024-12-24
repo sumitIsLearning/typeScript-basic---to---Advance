@@ -64,9 +64,12 @@ async function verifyPassword(req: Request, res: Response, next: NextFunction) {
 
         const match = await bcrypt.compare(password, user.password)
 
-        if (!match) res.status(ResponseStatusCode.BAD_REQUEST).json({
-            error: "Invalid Password"
-        })
+        if (!match) {
+            res.status(ResponseStatusCode.BAD_REQUEST).json({
+                error: "Invalid Password"
+            })
+            return;
+        }
 
         req.verifiedUser = user;
 
