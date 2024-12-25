@@ -1,23 +1,23 @@
 import { Request, Response, NextFunction } from "express";
 import dotenv from 'dotenv'
 
-import { ResponseStatusCode } from "../../../statusCodes/responseStatuscode";
-import { verifyToken } from "../../../utils/token";
+import { ResponseStatusCode } from "../../statusCodes/responseStatuscode";
+import { verifyToken } from "../../utils/token";
 import { JwtPayload } from "jsonwebtoken";
 
 dotenv.config();
-const JwtSecret: string = process.env.JWT_USER_SECRET || "";
+const JwtSecret: string = process.env.JWT_ADMIN_SECRET || "";
 
 declare global {
     namespace Express {
         interface Request {
-            userId: string
+            adminId: string
         }
     }
 }
 
 
-function userVerification(req: Request, res: Response, next: NextFunction) {
+function adminVerification(req: Request, res: Response, next: NextFunction) {
     const token = req.cookies.token;
 
     if (!token) {
@@ -37,7 +37,7 @@ function userVerification(req: Request, res: Response, next: NextFunction) {
             return;
         }
 
-        req.userId = payload.id;
+        req.adminId = payload.id;
 
         next();
 
@@ -51,4 +51,4 @@ function userVerification(req: Request, res: Response, next: NextFunction) {
 
 }
 
-export default userVerification;
+export default adminVerification;

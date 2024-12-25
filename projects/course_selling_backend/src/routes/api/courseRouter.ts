@@ -2,7 +2,7 @@ import { Request, Response, Router } from 'express';
 
 import { ResponseStatusCode } from '../../statusCodes/responseStatuscode';
 import { courseModel } from '../../db';
-import userVerification from '../../middlewares/hash&verifyPass/authentication/userVerification';
+import userVerification from '../../middlewares/authentication/userVerification';
 
 const courseRouter = Router();
 

@@ -4,15 +4,16 @@ import { ResponseStatusCode } from '../../statusCodes/responseStatuscode';
 import { courseModel, purchaseModel, userModel } from '../../db';
 import { hashPassword, verifyPassword } from '../../middlewares/hash&verifyPass/handleHashing';
 import { generateToken } from '../../utils/token';
-import userVerification from '../../middlewares/hash&verifyPass/authentication/userVerification';
-import mongoose, { Types } from 'mongoose';
+import userVerification from '../../middlewares/authentication/userVerification';
+import mongoose from 'mongoose';
+import { signInValidation, signUpValidation } from '../../middlewares/inputValidation/inputValidation';
 
 dotenv.config();
 const JwtSecret: string = process.env.JWT_USER_SECRET || "";
 
 const userRouter = Router();
 
-userRouter.post('/signUp', hashPassword, async (req: Request, res: Response) => {
+userRouter.post('/signUp', signUpValidation ,hashPassword, async (req: Request, res: Response) => {
     try {
         const { firstname, lastname, email, password } = req.body;
 
@@ -54,7 +55,7 @@ userRouter.post('/signUp', hashPassword, async (req: Request, res: Response) => 
     }
 })
 
-userRouter.post('/signIn', verifyPassword, (req: Request, res: Response) => {
+userRouter.post('/signIn',signInValidation, verifyPassword, (req: Request, res: Response) => {
     try {
         const user = req.verifiedUser;
 
@@ -120,7 +121,7 @@ userRouter.get('/courses', async (req: Request, res: Response) => {
     }
 })
 
-userRouter.get('/purchase/course/:id', async (req: Request, res: Response) => {
+userRouter.post('/purchase/course/:id', async (req: Request, res: Response) => {
     try {
         const userId = req.userId;
         const courseId = req.params.id;

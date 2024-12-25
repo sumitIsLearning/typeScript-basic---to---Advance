@@ -3,14 +3,15 @@ import { ResponseStatusCode } from '../../statusCodes/responseStatuscode';
 import { adminModel, courseModel } from '../../db';
 import { hashPassword, verifyPassword } from '../../middlewares/hash&verifyPass/handleHashing';
 import { generateToken } from '../../utils/token';
-import adminVerification from '../../middlewares/hash&verifyPass/authentication/adminVerification';
+import adminVerification from '../../middlewares/authentication/adminVerification';
 import mongoose from 'mongoose';
+import { courseValidation, signInValidation, signUpValidation } from '../../middlewares/inputValidation/inputValidation';
 
 const adminRouter = Router();
 
 const JwtSecret: string = process.env.JWT_ADMIN_SECRET || "";
 
-adminRouter.post('/signUp', hashPassword, async (req: Request, res: Response) => {
+adminRouter.post('/signUp',signUpValidation, hashPassword, async (req: Request, res: Response) => {
     try {
         const { firstname, lastname, email, password } = req.body;
 
@@ -28,6 +29,7 @@ adminRouter.post('/signUp', hashPassword, async (req: Request, res: Response) =>
             res.status(ResponseStatusCode.BAD_REQUEST).json({
                 error: "Admin already exists"
             })
+            return;
         }
 
         const savedAdmin = await adminModel.create({
@@ -52,7 +54,7 @@ adminRouter.post('/signUp', hashPassword, async (req: Request, res: Response) =>
 })
 
 
-adminRouter.post('/signIn', verifyPassword, async (req: Request, res: Response) => {
+adminRouter.post('/signIn',signInValidation, verifyPassword, async (req: Request, res: Response) => {
     try {
         const admin = req.verifiedUser;
 
@@ -105,15 +107,34 @@ adminRouter.get('/purchase/:id', (req: Request, res: Response) => {
 })
 
 //admin can create, read , update and delete course
-adminRouter.post('/create-course', async (req: Request, res: Response) => {
+adminRouter.post('/create-course', courseValidation, async (req: Request, res: Response) => {
     try {
         const adminId = req.adminId;
         const { title, description, imageUrl, price } = req.body;
+
+        if(!mongoose.Types.ObjectId.isValid(adminId)) {
+            res.status(ResponseStatusCode.BAD_REQUEST).json({
+                error:"Invalid admin ID"
+            })
+            return;
+        }
 
         if (!title || !description || !imageUrl || !price) {
             res.status(ResponseStatusCode.BAD_REQUEST).json({
                 error: "All the fields are required"
             });
+            return;
+        }
+
+        const titleExists = await courseModel.exists({
+            creatorId:adminId,
+            title:title
+        });
+
+        if(titleExists) {
+            res.status(ResponseStatusCode.CONFLICT).json({
+                error:"Title already in use"
+            })
             return;
         }
 
@@ -143,12 +164,20 @@ adminRouter.get('/course', async (req: Request, res: Response) => {
     try {
         const adminId = req.adminId;
 
+        if(!mongoose.Types.ObjectId.isValid(adminId)) {
+            res.status(ResponseStatusCode.BAD_REQUEST).json({
+                error:"Invalid admin ID"
+            })
+            return;
+        }
+
         const courses = await courseModel.find({ creatorId: adminId });
 
         if (courses.length === 0) {
             res.status(ResponseStatusCode.NOT_FOUND).json({
                 message: "No Courses Found for this admin"
             })
+            return;
         }
 
         res.status(ResponseStatusCode.OK).json({
@@ -173,6 +202,7 @@ adminRouter.get('/course/:id', async (req: Request, res: Response) => {
             res.status(ResponseStatusCode.BAD_REQUEST).json({
                 error: "Invalid course id"
             })
+            return;
         }
 
         const course = await courseModel.findOne({ _id: courseId });
@@ -181,6 +211,7 @@ adminRouter.get('/course/:id', async (req: Request, res: Response) => {
             res.status(ResponseStatusCode.NOT_FOUND).json({
                 message: "Course Not Found"
             })
+            return;
         }
 
         res.status(ResponseStatusCode.OK).json({
@@ -196,7 +227,7 @@ adminRouter.get('/course/:id', async (req: Request, res: Response) => {
     }
 })
 
-adminRouter.put('/course/:id', async (req: Request, res: Response) => {
+adminRouter.put('/course/:id', courseValidation, async (req: Request, res: Response) => {
     try {
         const courseId = req.params.id;
         const { title, description, imageUrl, price } = req.body;
